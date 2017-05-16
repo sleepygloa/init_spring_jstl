@@ -1,2 +1,4 @@
-# spring_initsetting
-spring_init_and _login_board
+# spring init Setting file & loginForm, board 
+------
+
+1. backup : 2017-05-16
