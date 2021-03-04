@@ -16,7 +16,7 @@
 ![login](./images/login2.png)
 ![userRegist](./images/userRegist.png)
 ![userModify](./images/userModify.png)
-![loginSuccess](./images/loginuccess.png)
+![loginSuccess](./images/loginsuccess.png)
 ![boardList](./images/boardList.png)
 ![boardWrite](./images/boardWrite.png)
 ![boardView](./images/boardView.png)
