@@ -1,5 +1,7 @@
 # jstl 초기세팅용 자바 프로젝트
 ------
+### 설명
+자바학원 처음다녀서 자바 차음배웠을때 만든 게시판.
 
 ### 이력
 1. backup : 2017-05-16
@@ -12,3 +14,12 @@
 
 ### 관련사진
 ![login](./images/login2.png)
+![userRegist](./images/userRegist.png)
+![userModify](./images/userModify.png)
+![loginSuccess](./images/loginSuccess.png)
+![boardList](./images/boardList.png)
+![boardWrite](./images/boardWrite.png)
+![boardView](./images/boardView.png)
+![boardModify](./images/boardModify.png)
+![boardDelete](./images/boardDelete.png)
+
