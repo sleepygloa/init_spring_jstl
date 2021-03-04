@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>게시판</title>
-<link href="/spring/boardjs/style.css" rel="stylesheet" type="text/css">
+<link href="/boardjs/style.css" rel="stylesheet" type="text/css">
 <style type='text/css'>
 <!--
 a:link { color:black; text-decoration:none; }
@@ -22,11 +22,11 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
 </style>
 </head>
 
-<body bgcolor="${bodyback_c}">  
+<body bgcolor="${bodyback_c}">
 <center><b>글내용 보기</b>
 <br>
 <form>
-<table width="500" border="1" cellspacing="0" cellpadding="0" align="center">  
+<table width="500" border="1" cellspacing="0" cellpadding="0" align="center">
   <tr height="30">
     <td align="center" width="125" bgcolor="${value_c}">글번호</td>
     <td align="center" width="125" align="center">${article.num}</td>
@@ -47,22 +47,22 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
     <td align="center" width="125" bgcolor="${value_c}">글내용</td>
     <td align="left" width="375" colspan="3"><pre>${article.content}</pre></td>
   </tr>
-  <tr height="30">      
-    <td colspan="4" bgcolor="${value_c}" align="right" > 
-	  <input type="button" value="글수정" 
+  <tr height="30">
+    <td colspan="4" bgcolor="${value_c}" align="right" >
+	  <input type="button" value="글수정"
        onclick="document.location.href='updateForm.do?num=${article.num}&pageNum=${pageNum}'">
 	   &nbsp;&nbsp;&nbsp;&nbsp;
-	  <input type="button" value="글삭제" 
+	  <input type="button" value="글삭제"
        onclick="document.location.href='deleteForm.do?num=${article.num}&pageNum=${pageNum}'">
 	   &nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="button" value="답글쓰기" 
+      <input type="button" value="답글쓰기"
        onclick="document.location.href='writeForm.do?num=${article.num}&ref=${article.ref}&re_step=${article.re_step}&re_level=${article.re_level}'">
 	   &nbsp;&nbsp;&nbsp;&nbsp;
-       <input type="button" value="글목록" 
+       <input type="button" value="글목록"
        onclick="document.location.href='list.do?pageNum=${pageNum}'">
     </td>
   </tr>
-</table>    
-</form>      
+</table>
+</form>
 </body>
-</html>      
+</html>

@@ -6,9 +6,9 @@
 <html>
 <head>
 <title>게시판</title>
-<link href="/spring/boardjs/style.css" rel="stylesheet" type="text/css">
+<link href="/boardjs/style.css" rel="stylesheet" type="text/css">
 </head>
-<input type="button" value="로그인화면으로"  onclick="window.location='/springstudy/member/main.do'" />
+<input type="button" value="로그인화면으로"  onclick="window.location='/member/main.do'" />
 <body bgcolor="${bodyback_c}">
 <center><b>글목록(전체 글:${count})</b>
 <table width="700">
@@ -30,14 +30,14 @@
 </c:if>
 
 <c:if test="${count > 0}">
-<table border="1" width="700" cellpadding="0" cellspacing="0" align="center"> 
-    <tr height="30" bgcolor="${value_c}"> 
-      <td align="center"  width="50"  >번 호</td> 
-      <td align="center"  width="250" >제   목</td> 
+<table border="1" width="700" cellpadding="0" cellspacing="0" align="center">
+    <tr height="30" bgcolor="${value_c}">
+      <td align="center"  width="50"  >번 호</td>
+      <td align="center"  width="250" >제   목</td>
       <td align="center"  width="100" >작성자</td>
-      <td align="center"  width="150" >작성일</td> 
-      <td align="center"  width="50" >조 회</td> 
-      <td align="center"  width="100" >IP</td>    
+      <td align="center"  width="150" >작성일</td>
+      <td align="center"  width="50" >조 회</td>
+      <td align="center"  width="100" >IP</td>
     </tr>
 
    <c:forEach var="article" items="${articleList}">
@@ -54,14 +54,14 @@
 	  <c:if test="${article.re_level == 0}">
 	    <img src="images/level.gif" width="${5 * article.re_level}" height="16">
 	  </c:if>
-           
+
       <a href="content.do?num=${article.num}&pageNum=${currentPage}">
-          ${article.subject}</a> 
+          ${article.subject}</a>
           <c:if test="${article.readcount >= 20}">
             <img src="images/hot.gif" border="0"  height="16">
 		  </c:if>
 	</td>
-    <td align="center"  width="100"> 
+    <td align="center"  width="100">
        <a href="mailto:${article.email}">${article.writer}</a>
 	</td>
     <td align="center"  width="150">${article.reg_date}
@@ -81,8 +81,8 @@
    <c:set var="endPage" value="${startPage + pageBlock-1}"/>
    <c:if test="${endPage > pageCount}">
         <c:set var="endPage" value="${pageCount}"/>
-   </c:if> 
-          
+   </c:if>
+
    <c:if test="${startPage > 10}">
         <a href="list.do?pageNum=${startPage - 10 }">[이전]</a>
    </c:if>

@@ -4,30 +4,30 @@
 	<typeAlias alias="dto" type="login.spring.bean.LogonDTO"/>
 
 	<select id="idCheck" parameterClass="String" resultClass="int">
-		select count(*) from member where id=#id#	
+		select count(*) from jstl_member where id=#id#
 	</select>
-	
+
 	<select id="loginCheck" parameterClass="dto" resultClass="int">
-		select count(*) from member where id=#id# and passwd=#passwd#
+		select count(*) from jstl_member where id=#id# and passwd=#passwd#
 	</select>
-	
+
 	<insert id="inputPro" parameterClass="dto">
-		insert into member values(#id#,#passwd#,#name#,#jumin1#,#jumin2#,#email#,#blog#,sysdate,member_seq.nextval)
+		insert into jstl_member values(#id#,#passwd#,#name#,#jumin1#,#jumin2#,#email#,#blog#,now())
 	</insert>
-	
+
 	<select id="modify" parameterClass="String" resultClass="dto">
-		select * from member where id=#id#
+		select * from jstl_member where id=#id#
 	</select>
-	
+
 	<update id="modifyPro" parameterClass="dto">
-		update member set passwd=#passwd#,name=#name#,email=#email#,blog=#blog#
+		update jstl_member set passwd=#passwd#,name=#name#,email=#email#,blog=#blog#
 	</update>
-	
+
 	<select id="deleteCheck" parameterClass="java.util.HashMap" resultClass="int">
-		select count(*) from member where id=#id# and passwd=#passwd#
+		select count(*) from jstl_member where id=#id# and passwd=#passwd#
 	</select>
-	
+
 	<delete id="deletePro" parameterClass="java.util.HashMap">
-		delete member where id=#id# and passwd=#passwd#
+		delete jstl_member where id=#id# and passwd=#passwd#
 	</delete>
 </sqlMap>

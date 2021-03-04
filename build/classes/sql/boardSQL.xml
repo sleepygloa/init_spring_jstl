@@ -3,52 +3,52 @@
 <sqlMap namespace="board">
 	<typeAlias alias="bdto" type="test.board.bean.BoardDataBean" />
 	<select id="boardCount" resultClass="int">
-		select count(*) from board
+		select count(*) from jstl_board
 	</select>
-	
+
 	<select id="boardAll" resultClass="bdto" parameterClass="java.util.HashMap">
 	<![CDATA[
-	select num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip,readcount,r 
-	 from (select num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip,readcount,rownum r 
-	 from (select num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip,readcount 
-	 from board order by ref desc, re_step asc) order by ref desc, re_step asc ) where r >= #startRow# and r <= #endRow#
-	 ]]> 	
+		select aaa.num,aaa.writer,aaa.email,aaa.subject,aaa.passwd,aaa.reg_date,aaa.ref,aaa.re_step,aaa.re_level,aaa.content,aaa.ip,aaa.readcount, aaa.r
+	 from (	 select aa.num,aa.writer,aa.email,aa.subject,aa.passwd,aa.reg_date,aa.ref,aa.re_step,aa.re_level,aa.content,aa.ip,aa.readcount, ROW_NUMBER() OVER() as r
+	 from (select num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip,readcount
+	 from jstl_board order by ref desc, re_step asc) aa order by aa.ref desc, aa.re_step asc ) aaa where aaa.r >= #startRow# and aaa.r <= #endRow#
+	 ]]>
 	</select>
-	
+
 	<insert id="writeArticle" parameterClass="bdto">
-	insert into board (num, writer, email, subject, passwd, reg_date, ref, re_step, re_level, content, ip)
-	values(board_seq.NEXTVAL, #writer#, #email#, #subject#, #passwd#, #reg_date#, #ref#, #re_step#, #re_level#, #content#, #ip#)
+	insert into jstl_board (num, writer, email, subject, passwd, reg_date, ref, re_step, re_level, content, ip)
+	values(#num#, #writer#, #email#, #subject#, #passwd#, #reg_date#, #ref#, #re_step#, #re_level#, #content#, #ip#)
 	</insert>
-	
+
 	<select id="maxNum" resultClass="int">
-	select max(num) from board
-	</select>	
+	select max(num) from jstl_board
+	</select>
 
 
 
 	<update id="board_re_step_up" parameterClass="bdto">
-	update board set re_step = re_step + 1 where ref = #ref# and re_step > #re_step#
+	update jstl_board set re_step = re_step + 1 where ref = #ref# and re_step > #re_step#
 	</update>
 
 	<select id="getArticle" resultClass="bdto" parameterClass="int">
-	select * from board where num = #num#
+	select * from jstl_board where num = #num#
 	</select>
-	
+
 	<update id="board_readcount_up" parameterClass="int">
-	update board set readcount = readcount+1 where num = #num#
+	update jstl_board set readcount = readcount+1 where num = #num#
 	</update>
-	
+
 	<update id="updateArticle" parameterClass="bdto" >
-	update board set writer = #writer#, email = #email# , subject= #subject#, 
+	update jstl_board set writer = #writer#, email = #email# , subject= #subject#,
 	passwd = #passwd#, content = #content# where num = #num#
 	</update>
 
 	<select id="findPasswd" resultClass="String" parameterClass="int">
-	select passwd from board where num = #num#
+	select passwd from jstl_board where num = #num#
 	</select>
 
 	<delete id="deleteArticle" parameterClass="int">
-	delete from board  where num = #num#
+	delete from jstl_board  where num = #num#
 	</delete>
 
 </sqlMap>

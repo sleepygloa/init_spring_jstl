@@ -5,11 +5,11 @@
 <html>
 <head>
 <title>게시판</title>
-<link href="/spring/boardjs/style.css" rel="stylesheet" type="text/css">
+<link href="/boardjs/style.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" src="/spring/boardjs/script.js"></script>
 </head>
 
-<body bgcolor="${bodyback_c}">  
+<body bgcolor="${bodyback_c}">
 <center><b>글수정</b>
 <br>
 <form method="post" name="writeform" action="updatePro.do?pageNum=${pageNum}" onsubmit="return writeSave()">
@@ -41,15 +41,15 @@
      <input type="password" size="8" maxlength="12" name="passwd">
 	 </td>
   </tr>
-  <tr>      
-   <td colspan=2 bgcolor="${value_c}" align="center"> 
-     <input type="submit" value="글수정" >  
+  <tr>
+   <td colspan=2 bgcolor="${value_c}" align="center">
+     <input type="submit" value="글수정" >
      <input type="reset" value="다시작성">
-     <input type="button" value="목록보기" 
+     <input type="button" value="목록보기"
        onclick="document.location.href='list.do?pageNum=${pageNum}'">
    </td>
  </tr>
  </table>
 </form>
 </body>
-</html>      
+</html>
